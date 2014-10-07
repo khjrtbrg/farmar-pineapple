@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get "/", to: "home#index"
   get "/vendors", to: "vendors#index"
   get "/vendors-signup", to: "vendors#new"
-  get "/vendors/dashboard", to: "vendors#dashboard"
+  get "/vendors-login", to: "vendors#login"
+  get "/vendors/dashboard", to: "vendors#show"
   post "/vendors", to: "vendors#create"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
