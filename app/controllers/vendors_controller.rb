@@ -8,4 +8,13 @@ class VendorsController < ApplicationController
     @vendor = Vendor.new
   end
 
+  def create
+    @vendor = Vendor.new(params.require(:vendor).permit(:username, :email, :description))
+    if @vendor.save
+      redirect_to "/vendors/dashboard"
+    end
+  end
+
+  def dashboard
+  end
 end
