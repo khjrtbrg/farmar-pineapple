@@ -42,6 +42,7 @@ class VendorsController < ApplicationController
   def show
     if session[:user_id]
       @vendor = Vendor.find(session[:user_id])
+      @vendor.market ? @current_market = @vendor.market.name : @current_market = "No Market Selected"
     else
       redirect_to root_path
     end
