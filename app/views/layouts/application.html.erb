@@ -10,8 +10,13 @@
 
   <!-- cow image was taken from http://en.wikipedia.org/wiki/File:Cow_closeup_03.svg -->
   <nav id="login">
-        <%= link_to "Vendor Sign Up", "/signup" %>
-        <%= link_to "Vendor Login", "/login" %>
+    <% if current_user %>
+      <%= link_to "My Dashboard", "/dashboard" %>
+      <%= link_to "Log Out", "/log-out" %>
+    <% else %>
+      <%= link_to "Vendor Sign Up", "/signup" %>
+      <%= link_to "Vendor Login", "/login" %>
+    <% end %>
   </nav>
 
 
