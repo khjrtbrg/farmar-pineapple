@@ -80,7 +80,6 @@ form#search {
   padding: 1em 1em 1em 1em;
 }
 
-
 #content {
   font-family: "Lucida Grande";
   font-size: 1.2em;
@@ -96,10 +95,14 @@ form#search {
 }
 
 hr {
-    display: block;
-    border-top: 1px solid #adcfae;
-  }
+  display: block;
+  border-top: 1px solid #adcfae;
+}
 
 ul {
   list-style-type: circle;
+}
+
+.buttons {
+  margin-left: 2em;
 }
