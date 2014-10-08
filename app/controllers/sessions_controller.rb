@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       redirect_to "/vendors/dashboard", :notice => "Logged in!"
     else
       flash.now.alert = "Invalid username"
-      render "index"
+      redirect_to "/vendors-login"
     end
   end
 
