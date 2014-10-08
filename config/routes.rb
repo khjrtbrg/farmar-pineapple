@@ -14,7 +14,6 @@ Rails.application.routes.draw do
 
   get "/log-out",            to: "sessions#destroy"
 
-  resources :sessions
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
