@@ -2,9 +2,9 @@
 
 <strong>Welcome, <%= @vendor.username %></strong>
 <ul>
-  <li>Vendor Email: <%= @vendor.email %></li>
-  <li>Vendor Market:<%= @vendor.market_id %></li>
-  <li>Vendor Description: <%= @vendor.description %></li>
+  <li>Email: <%= @vendor.email %></li>
+  <li>Market: <%= @vendor.market.name %></li>
+  <li>Description: <%= @vendor.description %></li>
   <li>Products:
     <ul>
       <% @vendor.products.each do |product| %>
