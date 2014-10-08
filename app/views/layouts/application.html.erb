@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FarmarPineapple</title>
+  <title>US Farmers Markets</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -18,25 +18,28 @@
 
   <div id="main-nav">
 
-    <img id="cow" src="/assets/farmar-cow.png" alt="US Farmers' Markets Cow Logo">
+
+    <a href="/"><img id="cow" src="/assets/farmar-cow.png" alt="US Farmers Markets Cow Logo"></a>
 
     <nav id="main-links">
-      <a href="/">FARMERS MARKETS</a>&nbsp;/&nbsp;<a href="/">VENDORS</a>&nbsp;/&nbsp;<a href="/">PRODUCTS</a>
+      <a href="/">VENDORS</a>&nbsp;/&nbsp;<a href="/">FARMERS MARKETS</a>&nbsp;/&nbsp;<a href="/">PRODUCTS</a>
     </nav>
 
-    <form>
+    <form id="search">
       Search: <input type="text" name="search">
     </form>
 
   </div>
 
 
-  <div id="content">
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+  <div id="wrapper">
 
-    <%= yield %>
+    <div id="content">
+
+      <%= yield %>
+
+    </div>
+
   </div>
 
 

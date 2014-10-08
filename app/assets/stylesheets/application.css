@@ -30,17 +30,23 @@ a:hover {
 }
 
 #login {
-  background-color: #e5e5e5;
-  font-size: 1.5em;
+  background-color: #343434;
+  font-size: 1em;
   width:100%;
   margin: 0 auto;
   opacity: 0.9;
-  padding: 0.2em 0 0.2em 0;
-  border-bottom: 1px solid #333333;
+  padding: 1em 1em 1em 1em;
+  line-height: 1.5em;
+
 }
 
 #login a {
   margin-left: 88%;
+  color: #c8c8c8;
+}
+
+#login a:hover {
+  color: #ffffff;
 }
 
 #main-nav {
@@ -50,6 +56,7 @@ a:hover {
 #cow {
   width: 15%;
   float: left;
+  margin: 1em 3em 2em 1em;
 }
 
 #main-links {
@@ -58,13 +65,41 @@ a:hover {
   font-size: 1.7em;
 }
 
-form {
+form#search {
   float: right;
   margin-top: 6%;
   margin-right: 2%;
 }
 
-#content {
+#wrapper {
   clear: both;
+  width: 100%;
+  opacity: 0.9;
+  margin-top: 4em;
+  background-color: #e5e5e5;
   padding: 1em 1em 1em 1em;
+}
+
+
+#content {
+  font-family: "Lucida Grande";
+  font-size: 1.2em;
+  width: 80%;
+  margin-left: 2em;
+}
+
+.big-letters {
+  font-family: "Palatino Linotype", "Book Antiqua", "Palatino", serif;
+  font-size: 2.2em;
+  color: #373737;
+  text-align: center;
+}
+
+hr {
+    display: block;
+    border-top: 1px solid #adcfae;
+  }
+
+ul {
+  list-style-type: circle;
 }
