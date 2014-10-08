@@ -30,7 +30,7 @@ class VendorsController < ApplicationController
     @vendor.username = params[:vendor][:username]
     @vendor.email = params[:vendor][:email]
     @vendor.description = params[:vendor][:description]
-    @vendor.market_id = params[:vendor][:market_id]
+    @vendor.market_id = params[:vendor][:market_id] if params[:vendor][:market_id] != "select"
 
     if @vendor.save
       redirect_to "/dashboard"
