@@ -9,14 +9,13 @@ class VendorsController < ApplicationController
   end
 
   def create
-    if @vendor = Vendor.find_by(username: params[:username])
-      login_check
+    @vendor = Vendor.new(params.require(:vendor).permit(:username, :email, :description))
+    if @vendor.save
+      session[:user_id] = @vendor.id
+      redirect_to "/vendors/dashboard"
     else
-      @vendor = Vendor.new(params.require(:vendor).permit(:username, :email, :description))
-      if @vendor.save
-        session[:user_id] = @vendor.id
-        redirect_to "/vendors/dashboard"
-      end
+      flash.now.alert = "Something went wrong!"
+      render "new"
     end
   end
 
