@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   post "/add-products", to: "products#create"
   get "/product/:id/edit",  to: "products#edit"
   post "/product/edit", to: "products#update"
+  get "/product/:id/delete", to: "products#destroy"
 
   get "/log-out",       to: "sessions#destroy"
 

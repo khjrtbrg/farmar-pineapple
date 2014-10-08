@@ -29,4 +29,9 @@ class ProductsController < ApplicationController
     end
   end
 
+  def destroy
+    Product.find(params[:id]).destroy
+    redirect_to '/dashboard'
+  end
+
 end
