@@ -8,14 +8,13 @@ class SessionsController < ApplicationController
       session[:user_id] = @vendor.id
       redirect_to "/dashboard", :notice => "Logged in!"
     else
-      flash.now.alert = "Invalid username"
       render "index"
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, :notice => "Logged out!"
+    redirect_to root_url
   end
 
 end
