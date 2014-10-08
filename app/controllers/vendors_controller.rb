@@ -26,4 +26,9 @@ class VendorsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def destroy
+    Vendor.find(session[:user_id]).destroy
+    redirect_to root_path
+  end
 end
