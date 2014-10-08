@@ -12,7 +12,7 @@ class VendorsController < ApplicationController
     @vendor = Vendor.new(params.require(:vendor).permit(:username, :email, :description))
     if @vendor.save
       session[:user_id] = @vendor.id
-      redirect_to "/vendors/dashboard"
+      redirect_to "/dashboard"
     else
       flash.now.alert = "Something went wrong!"
       render "new"

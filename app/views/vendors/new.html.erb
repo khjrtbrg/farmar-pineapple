@@ -1,12 +1,12 @@
-<%= form_for @vendor do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+<form action="/vendors" method="post">
+  <p>
+  Username: <input type="text" name="vendor[username]" value="<%= @vendor.username %>"><br>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+  Email: <input type="text" name="vendor[email]" value="<%= @vendor.email %>"><br>
 
-  <%= f.label :description %>
-  <%= f.text_area :description %>
+  Description: <textarea name="vendor[description]" value="<%= @vendor.description %>"></textarea>
 
-  <%= f.submit "Sign Up" %>
-<% end %>
+  <input type="submit" value="Sign Up">
+</p>
+
+</form>
