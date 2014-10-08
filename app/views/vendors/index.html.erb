@@ -2,7 +2,7 @@
   <strong><%= vendor.username %></strong>
   <ul>
     <li>Vendor Email: <%= vendor.email %></li>
-    <li>Vendor Market: <%= vendor.market.name %></li>
+    <li>Vendor Market: <%= vendor.market ? vendor.market.name : "No Market Selected" %></li>
     <li>Vendor Description: <%= vendor.description %></li>
     <li>Number of Products: <%= vendor.products.count %></li>
   </ul>
