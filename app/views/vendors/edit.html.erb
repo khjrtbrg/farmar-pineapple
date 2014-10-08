@@ -6,7 +6,16 @@
 
     Email: <input type="text" name="vendor[email]" value="<%= @vendor.email %>"><br>
 
-    Description: <textarea name="vendor[description]"><%= @vendor.description %></textarea>
+    Description: <textarea name="vendor[description]"><%= @vendor.description %></textarea><br>
+
+    Market: <%= @current_market %><br>
+
+    <select name="vendor[market_id]">
+              <option value="select">Select Different Market...</option>
+              <% @markets.each do |market|  %>
+                <option value="<%= market.id %>"><%= market.name %></option>
+              <% end %>
+            </select><br>
 
     <input type="submit" value="Update">
   </p>

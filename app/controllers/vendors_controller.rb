@@ -20,6 +20,8 @@ class VendorsController < ApplicationController
 
   def edit
     @vendor = Vendor.find(session[:user_id])
+    @markets = Market.all
+    @vendor.market ? @current_market = @vendor.market.name : @current_market = "No Market Selected"
   end
 
   def update
@@ -28,6 +30,7 @@ class VendorsController < ApplicationController
     @vendor.username = params[:vendor][:username]
     @vendor.email = params[:vendor][:email]
     @vendor.description = params[:vendor][:description]
+    @vendor.market_id = params[:vendor][:market_id]
 
     if @vendor.save
       redirect_to "/dashboard"
