@@ -4,11 +4,11 @@ Rails.application.routes.draw do
 
   get  "/vendors",           to: "vendors#index"
 
-  get  "/signup",    to: "vendors#new"
+  get  "/signup",           to: "vendors#new"
   post "/vendors",           to: "vendors#create"
 
-  get  "/login",     to: "sessions#index"
-  post "/sessions",          to: "sessions#create"
+  get  "/login",         to: "sessions#index"
+  post "/login",          to: "sessions#create"
 
   get  "/dashboard", to: "vendors#show"
 

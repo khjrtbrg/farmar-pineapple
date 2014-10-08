@@ -3,13 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    vendor = Vendor.authenticate(params[:username])
-    if vendor
-      session[:user_id] = vendor.id
-      redirect_to "/vendors/dashboard", :notice => "Logged in!"
+    @vendor = Vendor.authenticate(params[:username])
+    if @vendor
+      session[:user_id] = @vendor.id
+      redirect_to "/dashboard", :notice => "Logged in!"
     else
       flash.now.alert = "Invalid username"
-      redirect_to "/vendors-login"
+      render "index"
     end
   end
 
