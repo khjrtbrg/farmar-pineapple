@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  
+
   def index
     @product = Product.new
   end
@@ -11,6 +11,21 @@ class ProductsController < ApplicationController
       redirect_to "/dashboard"
     else
       render "index"
+    end
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:product][:id])
+    @product.name = params[:product][:name]
+
+    if @product.save
+      redirect_to "/dashboard"
+    else
+      render "edit"
     end
   end
 
