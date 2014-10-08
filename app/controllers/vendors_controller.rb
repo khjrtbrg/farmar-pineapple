@@ -14,8 +14,25 @@ class VendorsController < ApplicationController
       session[:user_id] = @vendor.id
       redirect_to "/dashboard"
     else
-      flash.now.alert = "Something went wrong!"
       render "new"
+    end
+  end
+
+  def edit
+    @vendor = Vendor.find(session[:user_id])
+  end
+
+  def update
+    @vendor = Vendor.find(session[:user_id])
+
+    @vendor.username = params[:vendor][:username]
+    @vendor.email = params[:vendor][:email]
+    @vendor.description = params[:vendor][:description]
+
+    if @vendor.save
+      redirect_to "/dashboard"
+    else
+      render "edit"
     end
   end
 

@@ -11,10 +11,11 @@ Rails.application.routes.draw do
   post "/login",     to: "sessions#create"
 
   get  "/dashboard", to: "vendors#show"
+  get  "/edit",      to: "vendors#edit"
+  post "/edit",      to: "vendors#update"
+  get  "/delete",    to: "vendors#destroy"
 
   get "/log-out",    to: "sessions#destroy"
-
-  get "/delete",     to: "vendors#destroy"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

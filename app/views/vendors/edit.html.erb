@@ -1,0 +1,13 @@
+<h2>Edit My Information</h2>
+
+<form action="/edit" method="POST">
+  <p>
+    Username: <input type="text" name="vendor[username]" value="<%= @vendor.username %>"><br>
+
+    Email: <input type="text" name="vendor[email]" value="<%= @vendor.email %>"><br>
+
+    Description: <textarea name="vendor[description]"><%= @vendor.description %></textarea>
+
+    <input type="submit" value="Update">
+  </p>
+</form>
