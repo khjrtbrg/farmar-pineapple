@@ -2,20 +2,23 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  get  "/vendors",   to: "vendors#index"
+  get  "/vendors",      to: "vendors#index"
 
-  get  "/signup",    to: "vendors#new"
-  post "/vendors",   to: "vendors#create"
+  get  "/signup",       to: "vendors#new"
+  post "/vendors",      to: "vendors#create"
 
-  get  "/login",     to: "sessions#index"
-  post "/login",     to: "sessions#create"
+  get  "/login",        to: "sessions#index"
+  post "/login",        to: "sessions#create"
 
-  get  "/dashboard", to: "vendors#show"
-  get  "/edit",      to: "vendors#edit"
-  post "/edit",      to: "vendors#update"
-  get  "/delete",    to: "vendors#destroy"
+  get  "/dashboard",    to: "vendors#show"
+  get  "/edit",         to: "vendors#edit"
+  post "/edit",         to: "vendors#update"
+  get  "/delete",       to: "vendors#destroy"
 
-  get "/log-out",    to: "sessions#destroy"
+  get "/add-products",  to: "products#index"
+  post "/add-products", to: "products#create"
+
+  get "/log-out",       to: "sessions#destroy"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
