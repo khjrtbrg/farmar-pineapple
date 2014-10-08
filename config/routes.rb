@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   get "/product/:id/edit",  to: "products#edit"
   post "/product/edit", to: "products#update"
   get "/product/:id/delete", to: "products#destroy"
+  get "/product/:id", to: "products#redirect"
 
   get "/log-out",       to: "sessions#destroy"
 
