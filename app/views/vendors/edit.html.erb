@@ -11,11 +11,13 @@
     Market: <%= @current_market %><br>
 
     <select name="vendor[market_id]">
-              <option value="select">Select Different Market...</option>
-              <% @markets.each do |market|  %>
-                <option value="<%= market.id %>"><%= market.name %></option>
-              <% end %>
-            </select><br>
+      <option value="select">Select Different Market...</option>
+      <% @markets.each do |market|  %>
+        <option value="<%= market.id %>"><%= market.name %></option>
+      <% end %>
+    </select><br>
+
+    <%= link_to "Add Market", "/add-market" %>
 
     <input type="submit" value="Update">
   </p>

@@ -2,27 +2,31 @@ Rails.application.routes.draw do
 
   root "home#index"
 
-  get  "/vendors",      to: "vendors#index"
+  get  "/vendors",           to: "vendors#index"
 
-  get  "/signup",       to: "vendors#new"
-  post "/vendors",      to: "vendors#create"
+  get  "/signup",            to: "vendors#new"
+  post "/vendors",           to: "vendors#create"
 
-  get  "/login",        to: "sessions#index"
-  post "/login",        to: "sessions#create"
+  get  "/login",             to: "sessions#index"
+  post "/login",             to: "sessions#create"
 
-  get  "/dashboard",    to: "vendors#show"
-  get  "/edit",         to: "vendors#edit"
-  post "/edit",         to: "vendors#update"
-  get  "/delete",       to: "vendors#destroy"
+  get  "/dashboard",         to: "vendors#show"
+  get  "/edit",              to: "vendors#edit"
+  post "/edit",              to: "vendors#update"
+  get  "/delete",            to: "vendors#destroy"
 
-  get "/add-products",  to: "products#index"
-  post "/add-products", to: "products#create"
-  get "/product/:id/edit",  to: "products#edit"
-  post "/product/edit", to: "products#update"
-  get "/product/:id/delete", to: "products#destroy"
-  get "/product/:id", to: "products#redirect"
+  get  "/add-products",      to: "products#index"
+  post "/add-products",      to: "products#create"
+  get  "/product/:id/edit",  to: "products#edit"
+  post "/product/edit",      to: "products#update"
+  get  "/product/:id/delete", to: "products#destroy"
+  get  "/product/:id",       to: "products#redirect"
 
-  get "/log-out",       to: "sessions#destroy"
+  get  "/add-market",        to: "markets#index"
+  post "/add-market",        to: "markets#create"
+
+
+  get "/log-out",            to: "sessions#destroy"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
