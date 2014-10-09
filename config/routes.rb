@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get    "/vendors",                to: "vendors#index",         as: :vendors
 
   get    "/signup",                 to: "vendors#new"
-  post   "/vendors",                to: "vendors#create"
+  post   "/singup",                 to: "vendors#create"
 
   get    "/login",                  to: "sessions#index"
   post   "/login",                  to: "sessions#create"
@@ -34,7 +34,7 @@ Rails.application.routes.draw do
   post   "/edit-markets",           to: "markets#edit_post" # ditto above
   get    "/market/:id/edit",        to: "markets#edit"
   post   "/market/edit",            to: "markets#update" #update URL to be market/:id for POST
-  get    "/market",                 to: "markets#index" # make this and child urls plural
+  get    "/market",                 to: "markets#index", as: :markets # make this and child urls plural
 
   root   "home#index"
 

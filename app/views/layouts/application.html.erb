@@ -8,7 +8,6 @@
 </head>
 <body>
 
-
   <nav id="login">
     <% if current_user %>
       <%= link_to "My Dashboard", "/dashboard" %>
@@ -19,8 +18,6 @@
     <% end %>
   </nav>
 
-
-
   <div id="main-nav">
 
     <p class="notice" ><%= notice %></p>
@@ -30,7 +27,7 @@
     <a href="/"><img id="cow" src="/assets/farmar-cow.png" alt="US Farmers Markets Cow Logo"></a>
 
     <nav id="main-links">
-      <a href="/vendors">VENDORS</a>&nbsp;/&nbsp;<a href="/market">FARMERS MARKETS</a>&nbsp;/&nbsp;<a href="/">PRODUCTS</a>
+      <%= link_to "VENDORS", vendors_path %>&nbsp;/&nbsp;<%= link_to "FARMERS MARKETS", markets_path %>&nbsp;/&nbsp;<%= link_to "PRODUCTS", products_path %>
     </nav>
 
     <form id="search">
