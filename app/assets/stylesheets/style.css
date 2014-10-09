@@ -36,6 +36,22 @@ a:hover {
   padding: 1em 1em 1em 1em;
 }
 
+.notice, .alert {
+  margin: 0;
+  font-style: italic;
+  text-align: center;
+  font-size: 1em;
+  color: #fff;
+}
+
+.notice {
+  background-color: #dbb4e6;
+}
+
+.alert {
+  background-color: #ad062a;
+}
+
 #cow {
   width: 15%;
   float: left;
