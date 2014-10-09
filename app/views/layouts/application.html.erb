@@ -13,8 +13,8 @@
       <%= link_to "My Dashboard", "/dashboard" %>
       <%= link_to "Log Out", "/log-out" %>
     <% else %>
-      <%= link_to "Vendor Sign Up", "/signup" %>
-      <%= link_to "Vendor Login", "/login" %>
+      <%= link_to "Vendor Sign Up", new_vendor_path %>
+      <%= link_to "Vendor Login", login_path %>
     <% end %>
   </nav>
 

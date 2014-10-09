@@ -1,16 +1,17 @@
 <h2>Vendor Sign Up</h2>
-<form action="/vendors" method="POST">
+
+<form action="<%= new_vendor_path %>" method="POST">
   <table>
     <tr>
-      <td>Username:</td>
+      <td><label for="vendor[username]">Username:</label></td>
       <td><input type="text" name="vendor[username]" value="<%= @vendor.username %>"></td>
     </tr>
     <tr>
-      <td>Email:</td>
+      <td><label for="vendor[email]">Email:</label></td>
       <td><input type="text" name="vendor[email]" value="<%= @vendor.email %>"></td>
     </tr>
     <tr>
-      <td>Description:</td>
+      <td><label for="vendor[description]">Description:</label></td>
       <td><textarea name="vendor[description]" value="<%= @vendor.description %>"></textarea></td>
     </tr>
   </table>
