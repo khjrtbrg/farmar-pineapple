@@ -18,6 +18,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+    if find_product
+      find_product
+    else
+      redirect_to "/products"
+    end
+  end
+
   def edit
     if Product.find_by(id: params[:id])
       @product = Product.find_by(id: params[:id])
@@ -45,8 +53,9 @@ class ProductsController < ApplicationController
     end
   end
 
-  def redirect
-    redirect_to "/dashboard"
-  end
+  private
 
+  def find_product
+    @product = Product.find(params[:id]) if Product.find_by(id: params[:id])
+  end
 end
