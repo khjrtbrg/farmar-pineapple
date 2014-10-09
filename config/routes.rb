@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   ## RESTful vendors (not 100% RESTful)
   get    "/vendors",                to: "vendors#index",         as: :vendors
   get    "/vendors/:id",            to: "vendors#show",          as: :show_vendor
-
   get    "/signup",                 to: "vendors#new",           as: :new_vendor
   post   "/signup",                 to: "vendors#create"
   get    "/dashboard",              to: "vendors#dashboard",     as: :dashboard

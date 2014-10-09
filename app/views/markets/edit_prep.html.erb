@@ -3,7 +3,7 @@
 <form action="<%= edit_markets_landing_path %>" method="POST">
   <table>
     <tr>
-      <td>Select Market:</td>
+      <td><label for="market[id]">Select Market:</label></td>
       <td>
         <select name="market[id]">
           <% @markets.each do |market|  %>

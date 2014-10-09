@@ -4,21 +4,24 @@
   <input type="hidden" name="_method" value="PUT">
   <table>
     <tr>
-      <td>Username:</td>
+      <td><label for="vendor[username]">Username:</label></td>
       <td><input type="text" name="vendor[username]" value="<%= @vendor.username %>"></td>
     </tr>
     <tr>
-      <td>Email:</td>
+      <td><label for="vendor[email]">Email:</label></td>
       <td><input type="text" name="vendor[email]" value="<%= @vendor.email %>"></td>
     </tr>
     <tr>
-      <td>Description:</td>
+      <td><label for="vendor[description]">Description:</label></td>
       <td><textarea name="vendor[description]"><%= @vendor.description %></textarea></td>
     </tr>
     <tr>
-      <td>Market:</td>
+      <td><label for="vendor[market_id]">Current Market:</label></td>
+      <td><%= @current_market %></td>
+    </tr>
+    <tr>
+      <td>New Market:</td>
       <td>
-        <%= @current_market %>
         <select name="vendor[market_id]">
           <option value="select">Select Different Market...</option>
           <% @markets.each do |market|  %>
