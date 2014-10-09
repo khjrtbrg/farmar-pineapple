@@ -1,4 +1,4 @@
-class ResultsController < ActionController::Base
+class ResultsController < ApplicationController
 
   def search
     @search_term = params[:search]
