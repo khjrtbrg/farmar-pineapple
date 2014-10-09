@@ -1,6 +1,7 @@
 class Vendor < ActiveRecord::Base
   belongs_to :market
   has_many :products, dependent: :destroy
+  has_many :sales, dependent: :destroy
 
   validates :username, presence: true
   validates :email, presence: true
