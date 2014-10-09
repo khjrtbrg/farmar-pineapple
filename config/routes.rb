@@ -29,13 +29,15 @@ Rails.application.routes.draw do
   # get  "/product/:id/sale",       to: "sales#index"
   # post "/product/:id/sale",       to: "sales#create"
 
-  get    "/add-market",             to: "markets#new" # change this to markets/new & add a check that redirects if not logged in
-  post   "/add-market",             to: "markets#create" # ditto above
-  get    "/edit-markets",           to: "markets#edit_prep" #change this to /markets/edit and above note
-  post   "/edit-markets",           to: "markets#edit_post" # ditto above
+  ## RESTful markets
+  get    "/markets",                to: "markets#index", as: :markets
+  get    "/markets/new",            to: "markets#new", as: :new_market
+  post   "/markets/new",            to: "markets#create"
+
+  get    "/edit-markets",           to: "markets#edit_prep"
+  post   "/edit-markets",           to: "markets#edit_post"
   get    "/market/:id/edit",        to: "markets#edit"
-  post   "/market/edit",            to: "markets#update" #update URL to be market/:id for POST
-  get    "/market",                 to: "markets#index", as: :markets # make this and child urls plural
+  post   "/market/edit",            to: "markets#update"
 
   root   "home#index"
 
