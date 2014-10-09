@@ -18,6 +18,15 @@ class VendorsController < ApplicationController
     end
   end
 
+  def dashboard
+    if session[:user_id]
+      @vendor = Vendor.find(session[:user_id])
+      @vendor.market ? @current_market = @vendor.market.name : @current_market = "No Market Selected"
+    else
+      redirect_to root_path
+    end
+  end
+
   def edit
     find_vendor
     @markets = Market.all
@@ -26,7 +35,6 @@ class VendorsController < ApplicationController
 
   def update
     lookup_vendor
-
     # These are separated out, instead of using .update because there needs to be a catch for the market_id
     @vendor.username = params[:vendor][:username]
     @vendor.email = params[:vendor][:email]
@@ -41,17 +49,12 @@ class VendorsController < ApplicationController
     end
   end
 
-  def dashboard
-    if session[:user_id]
-      @vendor = Vendor.find(session[:user_id])
-      @vendor.market ? @current_market = @vendor.market.name : @current_market = "No Market Selected"
-    else
-      redirect_to root_path
-    end
+  def destroy_prep
+    find_vendor
   end
 
   def destroy
-    Vendor.find(session[:user_id]).destroy
+    find_vendor.destroy
     session[:user_id] = nil
     redirect_to root_path, :notice => "Vendor Deleted!"
   end

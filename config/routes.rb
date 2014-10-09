@@ -7,9 +7,8 @@ Rails.application.routes.draw do
   get    "/dashboard",              to: "vendors#dashboard",     as: :dashboard
   get    "/edit",                   to: "vendors#edit",          as: :edit_vendor
   put    "/edit",                   to: "vendors#update"
-
-  get    "/delete",                 to: "vendors#destroy",       as: :delete_vendor
-
+  get    "/delete",                 to: "vendors#destroy_prep",  as: :delete_vendor
+  delete "/delete",                 to: "vendors#destroy"
 
   get    "/login",                  to: "sessions#index",        as: :login
   post   "/login",                  to: "sessions#create"

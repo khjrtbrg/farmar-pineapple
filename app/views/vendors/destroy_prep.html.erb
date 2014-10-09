@@ -1,0 +1,7 @@
+<h2>Delete Account</h2>
+
+<form action="<%= delete_vendor_path %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <label for="submit">Are you sure you want to delete your account (<%= @vendor.username %>)? This will also delete all your products.</label>
+  <input type="submit" value="delete">
+</form>
