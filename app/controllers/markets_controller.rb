@@ -22,24 +22,16 @@ class MarketsController < ApplicationController
   end
 
   def edit_post
-    redirect_to "/market/#{params[:market][:id]}/edit" ## replace with path here!!
+    redirect_to edit_market_path(params[:market][:id])
   end
 
   def edit
-    if Market.find_by(id: params[:id])
-      @market = Market.find_by(id: params[:id])
-    else
-      redirect_to edit_vendor_path
-    end
+    no_market_redirect
   end
 
   def update
-    @market = Market.find(params[:market][:id])
-    @market.name = params[:market][:name]
-
-    if @market.save
-      flash.now.alert = "Market Updated"
-      redirect_to edit_vendor_path
+    if find_market.update(market_params)
+      redirect_to edit_vendor_path, :notice => "Market Updated!"
     else
       render "edit"
     end
@@ -61,7 +53,7 @@ class MarketsController < ApplicationController
   end
 
   def no_market_redirect
-    find_market ? find_market : redirect_to(edit_vendor_path)
+    find_market ? find_market : redirect_to(edit_markets_landing_path)
   end
 
   def market_params

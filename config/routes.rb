@@ -34,12 +34,10 @@ Rails.application.routes.draw do
   get    "/markets/new",            to: "markets#new",           as: :new_market
   post   "/markets/new",            to: "markets#create"
   get    "/markets/:id",            to: "markets#show",          as: :show_market
-
-  get    "/markets/:id/edit",       to: "markets#edit_prep",     as: :edit_market
-  put    "/markets/:id",            to: "markets#edit_post"
-
-  get    "/market/:id/edit",        to: "markets#edit"
-  post   "/market/edit",            to: "markets#update"
+  get    "/edit-markets",           to: "markets#edit_prep",     as: :edit_markets_landing
+  post   "/edit-markets",           to: "markets#edit_post"
+  get    "/markets/:id/edit",       to: "markets#edit",          as: :edit_market
+  put    "/markets/:id",            to: "markets#update"
 
   root   "home#index"
 
