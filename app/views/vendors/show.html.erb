@@ -2,4 +2,5 @@
 <ul>
   <li>Email: <%= @vendor.email %></li>
   <li>Description: <%= @vendor.description %></li>
+  <li>Market: <%= link_to @vendor.market.name, show_market_path(@vendor.market.id) %></li>
 </ul>

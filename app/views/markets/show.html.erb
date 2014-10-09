@@ -5,7 +5,7 @@
     Vendors at Market:
     <ul>
       <% @market.vendors.each do |vendor|  %>
-        <li><%= vendor.username %></li>
+        <li><%= link_to vendor.username, show_vendor_path(vendor.id) %></li>
       <% end %>
     </ul>
   </li>

@@ -1,10 +1,10 @@
 <h2>View All Products</h2>
 
 <% @products.each do |product| %>
-  <strong><%= product.name %></strong>
+  <strong><%= link_to product.name, show_product_path(product.id) %></strong>
   <ul>
-    <li>Sold by: <%= product.vendor.username %></li>
-    <li>Available at: <%= product.vendor.market.name %></li>
+    <li>Sold by: <%= link_to product.vendor.username, show_vendor_path(product.vendor.id) %></li>
+    <li>Available at: <%= link_to product.vendor.market.name, show_market_path(product.vendor.market.id) %></li>
   </ul>
   <hr>
 <% end %>
