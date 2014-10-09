@@ -1,9 +1,7 @@
 <h2>Edit Product</h2>
 
-<form action="/product/edit" method="POST">
-  <p>
-    Product Name: <input type="text" name="product[name]" value="<%= @product.name %>"><br>
-    <input type="hidden" name="product[id]" value="<%= @product.id %>"><br>
-    <input type="submit" value="Update">
-  </p>
+<form action="/products/<%= @product.id %>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  Product Name: <input type="text" name="product[name]" value="<%= @product.name %>"><br>
+  <input type="submit" value="Update">
 </form>

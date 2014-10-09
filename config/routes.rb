@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   get  "/products",               to: "products#index", as: :products
   get  "/products/new",           to: "products#new", as: :new_product
   post "/products/new",           to: "products#create"
-  get  "/products/:id",           to: "products#show",  as: :show_product
+  get  "/products/:id",           to: "products#show", as: :show_product
+  get  "/products/:id/edit",      to: "products#edit", as: :edit_product
+  put  "/products/:id",           to: "products#update"
 
-  get  "/product/:id/edit",       to: "products#edit"
-  post "/product/edit",           to: "products#update" #update URL to be product/:id for POST
   get  "/product/:id/delete",     to: "products#destroy"
 
   # get  "/product/:id/sale",       to: "sales#index"

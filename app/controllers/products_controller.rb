@@ -27,18 +27,15 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    if Product.find_by(id: params[:id])
-      @product = Product.find_by(id: params[:id])
+    if find_product
+      find_product
     else
       redirect_to "/dashboard"
     end
   end
 
   def update
-    @product = Product.find(params[:product][:id])
-    @product.name = params[:product][:name]
-
-    if @product.save
+    if find_product.update(params.require(:product).permit(:name))
       redirect_to "/dashboard"
     else
       render "edit"
