@@ -22,8 +22,9 @@ Rails.application.routes.draw do
   get  "/product/:id/delete", to: "products#destroy"
   get  "/product/:id",       to: "products#redirect"
 
-  get  "/add-market",        to: "markets#index"
+  get  "/add-market",        to: "markets#new"
   post "/add-market",        to: "markets#create"
+  get  "/markets",           to: "markets#index"
 
 
   get "/log-out",            to: "sessions#destroy"

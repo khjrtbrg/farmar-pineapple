@@ -1,4 +1,9 @@
-<form method="POST" action="/add-market">
-  <input type="text" name="market[name]">
-  <input type="submit" value="add market">
-</form>
+<% @markets.each do |market| %>
+  <strong><%= market.name %></strong>
+  <ul>
+    <li>City: </li>
+    <li>State: </li>
+    <li>Number of Vendors: <%= market.vendors.count %></li>
+  </ul>
+  <hr>
+<% end %>
