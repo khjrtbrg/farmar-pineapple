@@ -1,40 +1,43 @@
 Rails.application.routes.draw do
 
-  root "home#index"
-
-  get  "/vendors",                to: "vendors#index"
+  get  "/vendors",                to: "vendors#index", as: :vendors
 
   get  "/signup",                 to: "vendors#new"
   post "/vendors",                to: "vendors#create"
 
   get  "/login",                  to: "sessions#index"
   post "/login",                  to: "sessions#create"
+  get  "/log-out",                to: "sessions#destroy"
 
   get  "/dashboard",              to: "vendors#show"
   get  "/edit",                   to: "vendors#edit"
   post "/edit",                   to: "vendors#update"
   get  "/delete",                 to: "vendors#destroy"
 
-  get  "/add-products",           to: "products#index"
-  post "/add-products",           to: "products#create"
+  ## restful products
+  get  "/products",               to: "products#index", as: :products
+  get  "/products/new",           to: "products#new", as: :new_product
+  post "/products/new",           to: "products#create"
+
+  get  "/products/:id",           to: "products#show",  as: :show_product
+
   get  "/product/:id/edit",       to: "products#edit"
-  post "/product/edit",           to: "products#update"
+  post "/product/edit",           to: "products#update" #update URL to be product/:id for POST
   get  "/product/:id/delete",     to: "products#destroy"
   get  "/product/:id",            to: "products#redirect"
 
   # get  "/product/:id/sale",       to: "sales#index"
   # post "/product/:id/sale",       to: "sales#create"
 
-  get  "/add-market",             to: "markets#new"
-  post "/add-market",             to: "markets#create"
-  get  "/edit-markets",           to: "markets#edit_prep"
-  post "/edit-markets",           to: "markets#edit_post"
+  get  "/add-market",             to: "markets#new" # change this to markets/new & add a check that redirects if not logged in
+  post "/add-market",             to: "markets#create" # ditto above
+  get  "/edit-markets",           to: "markets#edit_prep" #change this to /markets/edit and above note
+  post "/edit-markets",           to: "markets#edit_post" # ditto above
   get  "/market/:id/edit",        to: "markets#edit"
-  post "/market/edit",            to: "markets#update"
-  get  "/market",                 to: "markets#index"
+  post "/market/edit",            to: "markets#update" #update URL to be market/:id for POST
+  get  "/market",                 to: "markets#index" # make this and child urls plural
 
-  get "/log-out",                 to: "sessions#destroy"
-
+  root "home#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
