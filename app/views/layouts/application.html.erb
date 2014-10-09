@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <!-- cow image was taken from http://en.wikipedia.org/wiki/File:Cow_closeup_03.svg -->
+
   <nav id="login">
     <% if current_user %>
       <%= link_to "My Dashboard", "/dashboard" %>
@@ -26,6 +26,7 @@
     <p class="notice" ><%= notice %></p>
     <p class="alert" ><%= alert %></p>
 
+    <!-- cow image was taken from http://en.wikipedia.org/wiki/File:Cow_closeup_03.svg -->
     <a href="/"><img id="cow" src="/assets/farmar-cow.png" alt="US Farmers Markets Cow Logo"></a>
 
     <nav id="main-links">
