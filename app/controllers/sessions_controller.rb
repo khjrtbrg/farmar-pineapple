@@ -6,15 +6,16 @@ class SessionsController < ApplicationController
     @vendor = Vendor.authenticate(params[:username])
     if @vendor
       session[:user_id] = @vendor.id
-      redirect_to "/dashboard", :notice => "Logged in!"
+      redirect_to "/dashboard", :notice => "Logged In!"
     else
+      flash.now.alert = "Invalid Username"
       render "index"
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url
+    redirect_to root_url, :notice => "Logged Out!"
   end
 
 end

@@ -12,7 +12,7 @@ class VendorsController < ApplicationController
     @vendor = Vendor.new(params.require(:vendor).permit(:username, :email, :description))
     if @vendor.save
       session[:user_id] = @vendor.id
-      redirect_to "/dashboard"
+      redirect_to "/dashboard", :notice => "Vendor Created!"
     else
       render "new"
     end
@@ -35,6 +35,7 @@ class VendorsController < ApplicationController
     if @vendor.save
       redirect_to "/dashboard"
     else
+      flash.now.alert = "Something broke. Try again?"
       render "edit"
     end
   end
@@ -51,6 +52,6 @@ class VendorsController < ApplicationController
   def destroy
     Vendor.find(session[:user_id]).destroy
     session[:user_id] = nil
-    redirect_to root_path
+    redirect_to root_path, :notice => "Vendor Deleted!"
   end
 end
