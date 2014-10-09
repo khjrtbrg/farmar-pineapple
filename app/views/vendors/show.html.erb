@@ -8,7 +8,7 @@
   <li>Products:
     <ul>
       <% @vendor.products.each do |product| %>
-        <li><%= link_to product.name, show_product_path(product.id) %>, <%= link_to "edit", edit_product_path(product.id) %>, <a href="/products/<%= product.id %>/delete">delete</a></li>
+        <li><%= link_to product.name, show_product_path(product.id) %>, <%= link_to "edit", edit_product_path(product.id) %>,<%= link_to "delete", delete_product_path(product.id) %></li>
       <% end %>
     </ul>
   </li>

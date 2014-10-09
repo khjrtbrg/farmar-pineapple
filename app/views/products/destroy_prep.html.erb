@@ -1,0 +1,7 @@
+<h2>Delete Product</h2>
+
+<form action="/products/<%= @product.id %>" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <label for="submit">Are you sure you want to delete <%= @product.name %>?</label>
+  <input type="submit" value="delete">
+</form>

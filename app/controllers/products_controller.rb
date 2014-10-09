@@ -27,11 +27,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    if find_product
-      find_product
-    else
-      redirect_to "/dashboard"
-    end
+    no_product_redirect
   end
 
   def update
@@ -42,17 +38,23 @@ class ProductsController < ApplicationController
     end
   end
 
-  def destroy
-    if Product.find_by(id: params[:id])
-      Product.find_by(id: params[:id]).destroy
-    else
-      redirect_to "/dashboard"
-    end
+  def destroy_prep
+    no_product_redirect
   end
 
-  private
+  def destroy
+    find_product.destroy
+    redirect_to "/dashboard"
+  end
+
+
+  private ## methods below here are protected from accidentally being used elsewhere
 
   def find_product
     @product = Product.find(params[:id]) if Product.find_by(id: params[:id])
+  end
+
+  def no_product_redirect
+    find_product ? find_product : redirect_to("/dashboard")
   end
 end
