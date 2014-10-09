@@ -1,0 +1,9 @@
+<h2>Edit Market</h2>
+
+<form action="/market/edit" method="POST">
+  <p>
+    Market Name: <input type="text" name="market[name]" value="<%= @market.name %>"><br>
+    <input type="hidden" name="market[id]" value="<%= @market.id %>"><br>
+    <input type="submit" value="Update">
+  </p>
+</form>

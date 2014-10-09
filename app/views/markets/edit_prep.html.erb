@@ -1,0 +1,17 @@
+<h2>Edit Market</h2>
+
+<form action="/edit-markets" method="POST">
+  <table>
+    <tr>
+      <td>Select Market:</td>
+      <td>
+        <select name="market[id]">
+          <% @markets.each do |market|  %>
+            <option value="<%= market.id %>"><%= market.name %></option>
+          <% end %>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <input type="submit" value="Edit Market">
+</form>

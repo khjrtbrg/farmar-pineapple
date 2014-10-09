@@ -24,7 +24,11 @@ Rails.application.routes.draw do
 
   get  "/add-market",        to: "markets#new"
   post "/add-market",        to: "markets#create"
-  get  "/markets",           to: "markets#index"
+  get  "/edit-markets",      to: "markets#edit_prep"
+  post "/edit-markets",      to: "markets#edit_post"
+  get  "/market/:id/edit",   to: "markets#edit"
+  post "/market/edit",       to: "markets#update"
+  get  "/market",            to: "markets#index"
 
 
   get "/log-out",            to: "sessions#destroy"
