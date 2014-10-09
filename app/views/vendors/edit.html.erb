@@ -1,24 +1,50 @@
 <h2>Edit My Information</h2>
 
 <form action="/edit" method="POST">
-  <p>
-    Username: <input type="text" name="vendor[username]" value="<%= @vendor.username %>"><br>
-
-    Email: <input type="text" name="vendor[email]" value="<%= @vendor.email %>"><br>
-
-    Description: <textarea name="vendor[description]"><%= @vendor.description %></textarea><br>
-
-    Market: <%= @current_market %><br>
-
-    <select name="vendor[market_id]">
-      <option value="select">Select Different Market...</option>
-      <% @markets.each do |market|  %>
-        <option value="<%= market.id %>"><%= market.name %></option>
-      <% end %>
-    </select><br>
-
-    <%= link_to "Add Market", "/add-market" %>
-
-    <input type="submit" value="Update">
-  </p>
+  <table>
+    <tr>
+      <td>
+        Username:
+      </td>
+      <td>
+        <input type="text" name="vendor[username]" value="<%= @vendor.username %>">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Email:
+      </td>
+      <td>
+        <input type="text" name="vendor[email]" value="<%= @vendor.email %>">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Description:
+      </td>
+      <td>
+        <textarea name="vendor[description]"><%= @vendor.description %></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Market:
+      </td>
+      <td>
+        <%= @current_market %>
+        <select name="vendor[market_id]">
+          <option value="select">Select Different Market...</option>
+          <% @markets.each do |market|  %>
+            <option value="<%= market.id %>"><%= market.name %></option>
+          <% end %>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= link_to "+ Market", "/add-market" %>
+      </td>
+    </tr>
+  </table>
+  <input type="submit" value="Update">
 </form>

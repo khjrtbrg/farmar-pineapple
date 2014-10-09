@@ -1,12 +1,30 @@
 <h2>Vendor Sign Up</h2>
 <form action="/vendors" method="POST">
-  <p>
-    Username: <input type="text" name="vendor[username]" value="<%= @vendor.username %>"><br>
-
-    Email: <input type="text" name="vendor[email]" value="<%= @vendor.email %>"><br>
-
-    Description: <textarea name="vendor[description]" value="<%= @vendor.description %>"></textarea>
-    
-    <input type="submit" value="Sign Up">
-  </p>
+  <table>
+    <tr>
+      <td>
+        Username:
+      </td>
+      <td>
+        <input type="text" name="vendor[username]" value="<%= @vendor.username %>">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Email:
+      </td>
+      <td>
+        <input type="text" name="vendor[email]" value="<%= @vendor.email %>">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Description:
+      </td>
+      <td>
+        <textarea name="vendor[description]" value="<%= @vendor.description %>"></textarea>
+      </td>
+    </tr>
+  </table>
+  <input type="submit" value="Sign Up">
 </form>
