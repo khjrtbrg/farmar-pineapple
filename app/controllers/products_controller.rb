@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
     @product.vendor_id = session[:user_id]
     if @product.save
-      redirect_to "/dashboard"
+      redirect_to dashboard_path, :notice => "Product Created!"
     else
       render "index"
     end
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
 
   def update
     if find_product.update(product_params)
-      redirect_to "/dashboard"
+      redirect_to dashboard_path, :notice => "Product Updated!"
     else
       render "edit"
     end
@@ -44,7 +44,7 @@ class ProductsController < ApplicationController
 
   def destroy
     find_product.destroy
-    redirect_to "/dashboard"
+    redirect_to dashboard_path, :notice => "Product Deleted!"
   end
 
 
@@ -55,7 +55,7 @@ class ProductsController < ApplicationController
   end
 
   def no_product_redirect
-    find_product ? find_product : redirect_to("/dashboard")
+    find_product ? find_product : redirect_to(dashboard_path)
   end
 
   def product_params

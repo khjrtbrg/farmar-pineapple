@@ -9,7 +9,7 @@ class MarketsController < ApplicationController
   def create
     @market = Market.new(params.require(:market).permit(:name))
     if @market.save
-      redirect_to "/edit"
+      redirect_to "/edit", :notice => "Market Created!"
     else
       render "index"
     end
