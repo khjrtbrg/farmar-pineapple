@@ -1,7 +1,7 @@
 <h2>View All Markets</h2>
 
 <% @markets.each do |market| %>
-  <strong><%= market.name %></strong>
+  <strong><%= link_to market.name, show_market_path(market.id) %></strong>
   <ul>
     <li>City: </li>
     <li>State: </li>
