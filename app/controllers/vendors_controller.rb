@@ -49,6 +49,14 @@ class VendorsController < ApplicationController
     end
   end
 
+  def show
+    if find_vendor_no_session
+      find_vendor_no_session
+    else
+      redirect_to vendors_path
+    end
+  end
+
   def destroy_prep
     find_vendor
   end
@@ -61,6 +69,10 @@ class VendorsController < ApplicationController
 
 
   private ## methods below here are protected from accidentally being used elsewhere
+
+  def find_vendor_no_session
+    @vendor = Vendor.find(params[:id]) if Vendor.find_by(id: params[:id])
+  end
 
   def find_vendor
     lookup_vendor ? lookup_vendor : redirect_to(dashboard_path)
