@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  ## RESTful vendors
+  ## RESTful vendors (not 100% RESTful)
   get    "/vendors",                to: "vendors#index",         as: :vendors
   get    "/signup",                 to: "vendors#new",           as: :new_vendor
   post   "/signup",                 to: "vendors#create"
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get    "/delete",                 to: "vendors#destroy_prep",  as: :delete_vendor
   delete "/delete",                 to: "vendors#destroy"
 
+  ## RESTful sessions (nothing really changed here, not 100% RESTful)
   get    "/login",                  to: "sessions#index",        as: :login
   post   "/login",                  to: "sessions#create"
   get    "/log-out",                to: "sessions#destroy"
