@@ -19,14 +19,15 @@ class VendorsController < ApplicationController
   end
 
   def edit
-    @vendor = Vendor.find(session[:user_id])
+    find_vendor
     @markets = Market.all
     @vendor.market ? @current_market = @vendor.market.name : @current_market = "No Market Selected"
   end
 
   def update
-    @vendor = Vendor.find(session[:user_id])
+    lookup_vendor
 
+    # These are separated out, instead of using .update because there needs to be a catch for the market_id
     @vendor.username = params[:vendor][:username]
     @vendor.email = params[:vendor][:email]
     @vendor.description = params[:vendor][:description]
@@ -35,7 +36,7 @@ class VendorsController < ApplicationController
     if @vendor.save
       redirect_to dashboard_path
     else
-      flash.now.alert = "Something broke. Try again?"
+      flash.now.alert = "Something's wrong. Try again?"
       render "edit"
     end
   end
@@ -55,14 +56,15 @@ class VendorsController < ApplicationController
     redirect_to root_path, :notice => "Vendor Deleted!"
   end
 
+
   private ## methods below here are protected from accidentally being used elsewhere
 
   def find_vendor
-    @vendor = Vendor.find(session[:user_id]) if Vendor.find_by(id: session[:user_id])
+    lookup_vendor ? lookup_vendor : redirect_to(dashboard_path)
   end
 
-  def no_vendor_redirect
-    find_vendor ? find_vendor : redirect_to(dashboard_path)
+  def lookup_vendor
+    @vendor = Vendor.find(session[:user_id]) if Vendor.find_by(id: session[:user_id])
   end
 
   def vendor_params

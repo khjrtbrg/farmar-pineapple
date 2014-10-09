@@ -2,21 +2,18 @@ Rails.application.routes.draw do
 
   ## RESTful vendors
   get    "/vendors",                to: "vendors#index",         as: :vendors
-
   get    "/signup",                 to: "vendors#new",           as: :new_vendor
   post   "/signup",                 to: "vendors#create"
+  get    "/dashboard",              to: "vendors#dashboard",     as: :dashboard
+  get    "/edit",                   to: "vendors#edit",          as: :edit_vendor
+  put    "/edit",                   to: "vendors#update"
 
+  get    "/delete",                 to: "vendors#destroy",       as: :delete_vendor
 
 
   get    "/login",                  to: "sessions#index",        as: :login
   post   "/login",                  to: "sessions#create"
   get    "/log-out",                to: "sessions#destroy"
-
-  get    "/dashboard",              to: "vendors#dashboard",     as: :dashboard
-
-  get    "/edit",                   to: "vendors#edit"
-  post   "/edit",                   to: "vendors#update"
-  get    "/delete",                 to: "vendors#destroy"
 
   ## RESTful products
   get    "/products",               to: "products#index",        as: :products
