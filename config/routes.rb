@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get    "/products",               to: "products#index",        as: :products
   get    "/products/new",           to: "products#new",          as: :new_product
   post   "/products/new",           to: "products#create"
-  get    "/products/:id",           to: "products#show",         as: :show_product
+  get    "/products/:id",           to: "products#show",         as: :show_product  #### NEED SOMETHING LIKE THIS FOR VENDORS?
   get    "/products/:id/edit",      to: "products#edit",         as: :edit_product
   put    "/products/:id",           to: "products#update"
   get    "/products/:id/delete",    to: "products#destroy_prep", as: :delete_product
@@ -30,12 +30,14 @@ Rails.application.routes.draw do
   # post "/product/:id/sale",       to: "sales#create"
 
   ## RESTful markets
-  get    "/markets",                to: "markets#index", as: :markets
-  get    "/markets/new",            to: "markets#new", as: :new_market
+  get    "/markets",                to: "markets#index",         as: :markets
+  get    "/markets/new",            to: "markets#new",           as: :new_market
   post   "/markets/new",            to: "markets#create"
+  get    "/markets/:id",            to: "markets#show",          as: :show_market
 
-  get    "/edit-markets",           to: "markets#edit_prep"
-  post   "/edit-markets",           to: "markets#edit_post"
+  get    "/markets/:id/edit",       to: "markets#edit_prep",     as: :edit_market
+  put    "/markets/:id",            to: "markets#edit_post"
+
   get    "/market/:id/edit",        to: "markets#edit"
   post   "/market/edit",            to: "markets#update"
 

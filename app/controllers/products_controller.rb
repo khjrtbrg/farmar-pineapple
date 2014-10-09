@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
     if find_product
       find_product
     else
-      redirect_to "/products"
+      redirect_to products_path
     end
   end
 

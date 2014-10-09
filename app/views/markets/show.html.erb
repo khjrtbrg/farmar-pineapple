@@ -1,0 +1,12 @@
+<h2>Viewing Market: <%= @market.name %></h2>
+<ul>
+  <li>Number of Vendors: <%= @market.vendors.count %></li>
+  <li>
+    Vendors at Market:
+    <ul>
+      <% @market.vendors.each do |vendor|  %>
+        <li><%= vendor.username %></li>
+      <% end %>
+    </ul>
+  </li>
+</ul>

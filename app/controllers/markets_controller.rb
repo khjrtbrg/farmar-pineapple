@@ -45,6 +45,14 @@ class MarketsController < ApplicationController
     end
   end
 
+  def show
+    if find_market
+      find_market
+    else
+      redirect_to markets_path
+    end
+  end
+
 
   private ## methods below here are protected from accidentally being used elsewhere
 
