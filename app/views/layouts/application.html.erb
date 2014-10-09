@@ -30,7 +30,7 @@
       <%= link_to "VENDORS", vendors_path %>&nbsp;/&nbsp;<%= link_to "FARMERS MARKETS", markets_path %>&nbsp;/&nbsp;<%= link_to "PRODUCTS", products_path %>
     </nav>
 
-    <form id="search" action="<%= search_path %>" method="POST">
+    <form id="search" action="/search" method="POST">
       <input type="text" name="search" placeholder="Search">
       <input type="submit" value="search">
     </form>

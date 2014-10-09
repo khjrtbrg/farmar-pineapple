@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  post   "/search",                 to: "home#search",           as: :search
+  get    "/search",                 to: "results#go_home"
+  post   "/search",                 to: "results#search"#,           as: :search
 
   ## RESTful vendors (not 100% RESTful)
   get    "/vendors",                to: "vendors#index",         as: :vendors
