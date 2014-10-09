@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(params.require(:product).permit(:name))
+    @product = Product.new(product_params)
     @product.vendor_id = session[:user_id]
     if @product.save
       redirect_to "/dashboard"
@@ -31,7 +31,7 @@ class ProductsController < ApplicationController
   end
 
   def update
-    if find_product.update(params.require(:product).permit(:name))
+    if find_product.update(product_params)
       redirect_to "/dashboard"
     else
       render "edit"
@@ -56,5 +56,9 @@ class ProductsController < ApplicationController
 
   def no_product_redirect
     find_product ? find_product : redirect_to("/dashboard")
+  end
+
+  def product_params
+    (params.require(:product).permit(:name))
   end
 end
