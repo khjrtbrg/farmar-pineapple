@@ -21,7 +21,6 @@ a:hover {
   opacity: 0.9;
   padding: 1em 1em 1em 1em;
   line-height: 1.5em;
-
 }
 
 #login a {
@@ -53,6 +52,11 @@ form#search {
   float: right;
   margin-top: 6%;
   margin-right: 2%;
+}
+
+form#search input[type="text"] {
+  width: 55%;
+  border: 1px solid #e5e5e5;
 }
 
 #wrapper {
@@ -89,4 +93,41 @@ ul {
 
 .buttons {
   margin-left: 2em;
+}
+
+/* --- Forms Styling --------------------------- */
+form input[type="text"],
+form textarea {
+  border: none;
+  width: 30em;
+}
+
+form input,
+form textarea {
+  padding: 1em;
+}
+
+form textarea {
+  resize: none;
+  height: 7em;
+}
+
+form input[type="submit"],
+button {
+  border: none;
+  margin-top: 1%;
+  cursor: pointer;
+}
+
+button {
+  padding: 1em;
+}
+
+form input[type="submit"]:hover,
+button:hover {
+  background-color: #2aad06;
+}
+
+td {
+  padding-right: 2em;
 }
