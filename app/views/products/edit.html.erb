@@ -2,8 +2,17 @@
 
 <form action="/products/<%= @product.id %>" method="POST">
   <input type="hidden" name="_method" value="PUT">
-  <label for="product[name]">Product Name:</label>
-  <input type="text" name="product[name]" value="<%= @product.name %>"><br>
+
+  <table>
+    <tr>
+      <td><label for="product[name]">Name:</label></td>
+      <td><input type="text" name="product[name]" value="<%= @product.name %>"></td>
+    </tr>
+    <tr>
+      <td><label for="product[price]">Price:</label></td>
+      <td><input type="text" name="product[price]" value="<%= @product.price %>"></td>
+    </tr>
+  </table>
   <a href="<%= dashboard_path %>"><button type="button">Back</button></a>
   <input type="submit" value="Update">
 </form>
