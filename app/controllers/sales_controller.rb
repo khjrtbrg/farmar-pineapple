@@ -1,7 +1,7 @@
 class SalesController < ApplicationController
 
   def index
-    @sales = Sale.all
+    @sales = vendor_identifier.sales
   end
 
   def new
@@ -26,5 +26,9 @@ class SalesController < ApplicationController
 
   def sale_params
     (params.require(:sale).permit(:product_id))
+  end
+
+  def vendor_identifier
+    @vendor = Vendor.find(session[:user_id])
   end
 end

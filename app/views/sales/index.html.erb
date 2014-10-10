@@ -1,0 +1,11 @@
+<h2>View All My Sales</h2>
+
+<% @sales.each do |sale| %>
+  <strong>Sale #<%= sale.id %></strong>
+  <ul>
+    <li>Product: <%= sale.product.name %></li>
+    <li>Price: $<%= sale.product.price ? sale.product.price : 0 %></li>
+    <li>Purchase Time: <%= sale.created_at %></li>
+  </ul>
+  <hr>
+<% end %>

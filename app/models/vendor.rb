@@ -1,7 +1,7 @@
 class Vendor < ActiveRecord::Base
   belongs_to :market
   has_many :products, dependent: :destroy
-  has_many :sales, through: :vendors#, dependent: :destroy ## Needed to comment this out for now. Breaking vendor#destroy!
+  has_many :sales, through: :products#, dependent: :destroy ## Needed to comment this out for now. Breaking vendor#destroy!
 
   validates :username, presence: true
   validates :email, presence: true
