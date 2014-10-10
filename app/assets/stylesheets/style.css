@@ -190,6 +190,10 @@ button:hover {
   color: #fff;
 }
 
+button.delete-button:hover {
+  background-color: #ad062a;
+}
+
 td {
   padding-right: 2em;
 }
