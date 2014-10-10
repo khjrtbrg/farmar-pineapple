@@ -1,0 +1,20 @@
+<h2>Create Sale</h2>
+
+<form method="POST" action="<%= new_sale_path %>">
+  <table>
+    <tr>
+      <td>
+        <label for="sale[product_id]">Product: </label>
+      </td>
+      <td>
+        <select name="sale[product_id]">
+          <% @products.each do |product|  %>
+            <option value="<%= product.id %>"><%= product.name %> [$<%= product.price ? product.price : 0 %>]</option>
+          <% end %>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <a href="<%= dashboard_path %>"><button type="button">Back</button></a>
+  <input type="submit" value="Create Sale">
+</form>

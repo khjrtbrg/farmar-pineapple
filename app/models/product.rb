@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
   belongs_to :vendor
-  has_one :sale
+  has_many :sales
 
   validates :name, presence: true
 end
