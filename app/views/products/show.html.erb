@@ -1,5 +1,6 @@
 <h2>Viewing Product: <%= @product.name %></h2>
 
 <ul>
+  <li>Price: <%= "$" + @product.price.to_s if @product.price %></li>
   <li>Sold by: <%= link_to @product.vendor.username, show_vendor_path(@product.vendor.id) %></li>
 </ul>
