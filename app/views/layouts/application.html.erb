@@ -9,6 +9,8 @@
 <body>
 
   <nav id="login">
+    <p class="notice" ><%= notice %></p>
+    <p class="alert" ><%= alert %></p>
     <div id="login-wrapper">
       <% if current_user %>
         <%= link_to "My Dashboard", "/dashboard" %>
@@ -21,9 +23,6 @@
   </nav>
 
   <div id="main-nav">
-
-    <p class="notice" ><%= notice %></p>
-    <p class="alert" ><%= alert %></p>
 
     <!-- cow image was taken from http://en.wikipedia.org/wiki/File:Cow_closeup_03.svg -->
     <a href="/"><%= image_tag "farmar-cow.png", id: "cow", alt: "US Farmers Markets Cow Logo" %></a>

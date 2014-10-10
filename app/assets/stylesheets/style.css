@@ -25,6 +25,24 @@ a:hover {
   line-height: 1.5em;
 }
 
+.notice, .alert {
+  width: 20%;
+  margin: 0.5em 0 0 0;
+  float: left;
+  font-style: italic;
+  text-align: center;
+  font-size: 1em;
+  color: #fff;
+}
+
+.notice {
+  background-color: #dbb4e6;
+}
+
+.alert {
+  background-color: #ad062a;
+}
+
 #login #login-wrapper {
   float: right;
 }
@@ -41,22 +59,6 @@ a:hover {
 
 #main-nav {
   padding: 1em 1em 1em 1em;
-}
-
-.notice, .alert {
-  margin: 0;
-  font-style: italic;
-  text-align: center;
-  font-size: 1em;
-  color: #fff;
-}
-
-.notice {
-  background-color: #dbb4e6;
-}
-
-.alert {
-  background-color: #ad062a;
 }
 
 #cow {
