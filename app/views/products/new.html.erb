@@ -2,5 +2,6 @@
 
 <form method="POST" action="<%= new_product_path %>">
   <input type="text" name="product[name]">
-  <input type="submit" value="add product">
+  <a href="<%= dashboard_path %>"><button type="button">Back</button></a>
+  <input type="submit" value="Add Product">
 </form>

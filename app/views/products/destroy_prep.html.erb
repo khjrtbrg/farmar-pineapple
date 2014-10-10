@@ -3,5 +3,6 @@
 <form action="/products/<%= @product.id %>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
   <label for="submit">Are you sure you want to delete <%= @product.name %>?</label>
-  <input type="submit" value="delete">
+  <a href="<%= dashboard_path %>"><button type="button">Back</button></a>
+  <input type="submit" value="Delete">
 </form>
