@@ -6,14 +6,13 @@ class SalesController < ApplicationController
 
   def new
     @sale = Sale.new
-    @products = Product.all
   end
+
   def create
     @sale = Sale.new
   end
 
   def show
-
   end
 
 

@@ -33,7 +33,9 @@ Rails.application.routes.draw do
   # get  "/product/:id/sale",       to: "sales#index"
   # post "/product/:id/sale",       to: "sales#create"
 
-  get "/sales/new",                  to: "sales#new",            as: :new_sale
+  get "/sales/new",                  to: "sales#new",             as: :new_sale
+  post "/sales/new",                 to: "sales#create"
+  get "/sales/:id",                   to: "sales#show",           as: :show_sale
 
   ## RESTful markets
   get    "/markets",                to: "markets#index",         as: :markets
