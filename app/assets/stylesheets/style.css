@@ -138,6 +138,7 @@ ul {
 
 /* --- Forms Styling --------------------------- */
 form input[type="text"],
+form input[type="password"],
 form textarea {
   border: none;
   width: 30em;
