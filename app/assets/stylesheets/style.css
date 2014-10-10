@@ -118,12 +118,22 @@ ul {
   line-height: 1.5em;
 }
 
-li.more-products {
-  list-style-type: none;
-}
-
 .buttons {
   /* margin-left: 2em; */
+}
+
+.left-col,
+.right-col {
+  padding: 1em;
+}
+
+.left-col {
+  float: left;
+}
+
+.right-col {
+  float: right;
+  background-color: #c8c8c8;
 }
 
 /* --- Forms Styling --------------------------- */
