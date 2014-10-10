@@ -3,7 +3,7 @@
 <% @products.each do |product| %>
   <strong><%= link_to product.name, show_product_path(product.id) %></strong>
   <ul>
-    <li>Sold by: <%= link_to product.vendor.username, show_vendor_path(product.vendor.id) %></li>
+    <li>Sold by: <%= link_to product.vendor.username, show_vendor_path(product.vendor.id) %></li> 
     <li>Available at: <%= link_to product.vendor.market.name, show_market_path(product.vendor.market.id) %></li>
   </ul>
   <hr>
