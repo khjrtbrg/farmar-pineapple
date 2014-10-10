@@ -3,8 +3,7 @@
 <% @markets.each do |market| %>
   <strong><%= link_to market.name, show_market_path(market.id) %></strong>
   <ul>
-    <li>City: </li>
-    <li>State: </li>
+    <li>Location: <%= market.location %></li>
     <li>Number of Vendors: <%= market.vendors.count %></li>
   </ul>
   <hr>
