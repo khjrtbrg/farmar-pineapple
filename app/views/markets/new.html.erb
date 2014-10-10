@@ -1,7 +1,16 @@
 <h2>New Market</h2>
 
 <form method="POST" action="<%= new_market_path %>">
-  <input type="text" name="market[name]">
+  <table>
+    <tr>
+      <td><label for="market[name]">Name:</label></td>
+      <td><input type="text" name="market[name]"></td>
+    </tr>
+    <tr>
+      <td><label for="market[location]">Location:</label></td>
+      <td><input type="text" name="market[location]"></td>
+    </tr>
+  </table>
   <a href="<%= edit_vendor_path %>"><button type="button">Back</button></a>
   <input type="submit" value="Add Market">
 </form>
