@@ -26,7 +26,7 @@
     <p class="alert" ><%= alert %></p>
 
     <!-- cow image was taken from http://en.wikipedia.org/wiki/File:Cow_closeup_03.svg -->
-    <a href="/"><img id="cow" src="/assets/farmar-cow.png" alt="US Farmers Markets Cow Logo"></a>
+    <a href="/"><%= asset_path ("farmar-cow.png") %></a>
 
     <nav id="main-links">
       <%= link_to "VENDORS", vendors_path %>&nbsp;/&nbsp;<%= link_to "FARMERS MARKETS", markets_path %>&nbsp;/&nbsp;<%= link_to "PRODUCTS", products_path %>
