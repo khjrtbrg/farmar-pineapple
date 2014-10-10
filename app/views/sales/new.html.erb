@@ -1,0 +1,13 @@
+<h2>Add Sale</h2>
+
+<form action="<%= new_sale_path %>" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <label for="product[name]">Product Name:</label>
+  <select name="sale[product_id]">
+    <% @products.each do |product|  %>
+      <option value="<%= product.id %>"><%= product.name %></option>
+    <% end %>
+  </select>
+
+  <input type="submit" value="Mark as sold">
+</form>

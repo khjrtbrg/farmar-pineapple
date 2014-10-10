@@ -4,6 +4,10 @@ class SalesController < ApplicationController
     @sales = Sale.all
   end
 
+  def new
+    @sale = Sale.new
+    @products = Product.all
+  end
   def create
     @sale = Sale.new
   end
@@ -11,5 +15,7 @@ class SalesController < ApplicationController
   def show
 
   end
+
+
 
 end
