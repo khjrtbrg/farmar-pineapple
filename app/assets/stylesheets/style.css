@@ -167,6 +167,7 @@ button {
 form input[type="submit"]:hover,
 button:hover {
   background-color: #2aad06;
+  color: #fff;
 }
 
 td {
