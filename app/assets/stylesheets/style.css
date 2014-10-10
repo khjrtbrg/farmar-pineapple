@@ -17,15 +17,21 @@ a:hover {
   background-color: #343434;
   font-size: 1em;
   width:100%;
+  height: 3em;
   margin: 0 auto;
   opacity: 0.9;
   padding: 1em 1em 1em 1em;
   line-height: 1.5em;
 }
 
+#login #login-wrapper {
+  float: right;
+}
+
 #login a {
-  margin-left: 88%;
   color: #c8c8c8;
+  display: inline-block;
+  width: 100%;
 }
 
 #login a:hover {
@@ -152,4 +158,18 @@ button:hover {
 
 td {
   padding-right: 2em;
+}
+
+
+/* --- Mobile Styling --------------------------- */
+
+@media (max-width: 1075px) {
+  form#search {
+    float: left;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 880px) {
+
 }
