@@ -18,7 +18,11 @@
   <ul>
     <%= "<li>None Created</li>" if @vendor.products.count < 1 %>
     <% @vendor.products.each do |product| %>
-      <li><%= link_to product.name, show_product_path(product.id) %> (<%= link_to "edit", edit_product_path(product.id) %> - <%= link_to "delete", delete_product_path(product.id) %>)</li>
+      <li>
+        <div class="product-link-dashboard"><%= link_to product.name, show_product_path(product.id) %></div>
+        <%= link_to image_tag("edit.png", alt: "Edit Button"), edit_product_path(product.id) %>
+        <%= link_to image_tag("delete.png", alt: "Delete Button"), delete_product_path(product.id) %>
+      </li>
     <% end %>
   </ul>
   <a href="<%= new_product_path %>"><%= image_tag "add.png", alt: "Add Button" %> Product</a>
