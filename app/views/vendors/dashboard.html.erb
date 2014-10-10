@@ -10,7 +10,7 @@
       <% @vendor.products.each do |product| %>
         <li><%= link_to product.name, show_product_path(product.id) %> (<%= link_to "edit", edit_product_path(product.id) %> - <%= link_to "delete", delete_product_path(product.id) %>)</li>
       <% end %>
-      <li class="more-products"><a href="<%= new_product_path %>"><img src="/assets/add.png"> Product</a></li>
+      <li class="more-products"><a href="<%= new_product_path %>"><%= image_tag "add.png", alt: "Add Button" %> Product</a></li>
     </ul>
   </li>
 </ul>
