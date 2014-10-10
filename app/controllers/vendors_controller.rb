@@ -31,6 +31,7 @@ class VendorsController < ApplicationController
     find_vendor
     @markets = Market.all
     @vendor.market ? @current_market = @vendor.market.name : @current_market = "No Market Selected"
+    @edit_markets = true if @markets.size > 0
   end
 
   def update

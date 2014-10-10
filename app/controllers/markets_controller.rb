@@ -19,6 +19,9 @@ class MarketsController < ApplicationController
 
   def edit_prep
     @markets = Market.all
+    if @markets.size == 0
+      redirect_to edit_vendor_path, :alert => "No Markets to Edit"
+    end
   end
 
   def edit_post
