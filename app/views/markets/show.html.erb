@@ -1,13 +1,12 @@
 <h2>Viewing Market: <%= @market.name %></h2>
 
 <ul>
-  <li>Location: <%= @market.location %></li>
-  <li>Number of Vendors: <%= @market.vendors.count %></li>
-  <li>
-    Vendors at Market:
+  <li class="first">Location: <%= @market.location %></li>
+  <li class="first">Number of Vendors: <%= @market.vendors.count %></li>
+  <li class="first">Vendors at Market:
     <ul>
       <% @market.vendors.each do |vendor|  %>
-        <li><%= link_to vendor.username, show_vendor_path(vendor.id) %></li>
+        <li class="nested"><%= link_to vendor.username, show_vendor_path(vendor.id) %></li>
       <% end %>
     </ul>
   </li>
