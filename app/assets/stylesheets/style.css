@@ -141,6 +141,11 @@ li {
   min-width: 10em;
 }
 
+.total-sales {
+  margin-top: 2em;
+  color: #2aad06;
+}
+
 .right-col {
   float: right;
   background-color: #c8c8c8;

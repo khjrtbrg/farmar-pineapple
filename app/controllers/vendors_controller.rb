@@ -22,9 +22,18 @@ class VendorsController < ApplicationController
     if session[:user_id]
       @vendor = Vendor.find(session[:user_id])
       @vendor.market ? @current_market = @vendor.market.name : @current_market = "No Market Selected"
+      @total_sales = total_sales_finder(@vendor)
     else
       redirect_to root_path
     end
+  end
+
+  def total_sales_finder(vendor)
+    total = 0
+    vendor.sales.each do |sale|
+      total += sale.product.price.to_i
+    end
+    return total
   end
 
   def edit

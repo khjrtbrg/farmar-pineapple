@@ -12,12 +12,15 @@
     <a href="<%= edit_vendor_path %>"><button type="button">Edit Info</button></a>&nbsp;&nbsp;
     <a href="<%= sales_path %>"><button type="button">View My Sales</button></a>&nbsp;&nbsp;<a href="<%= new_sale_path %>"><button type="button">Create Sale</button></a>
   </div>
+
+  <div class="total-sales">
+    <strong>Total Sales: $<%= @total_sales %>.00</strong>
+  </div>
 </div>
 
 <div class="right-col">
   <strong>My Products</strong>
   <ul>
-    <%= "<li>None Created</li>" if @vendor.products.count < 1 %>
     <% @vendor.products.each do |product| %>
       <li>
         <div class="product-link-dashboard"><%= link_to product.name, show_product_path(product.id) %></div>
