@@ -91,7 +91,7 @@ form#search input[type="text"] {
   margin-top: 4em;
   background-color: #e5e5e5;
   padding: 1em 1em 1em 1em;
-  min-height: 25em;
+  min-height: 35em;
 }
 
 #content {
@@ -128,10 +128,6 @@ li {
   padding-bottom: 0.5em;
 }
 
-.buttons {
-  /* margin-left: 2em; */
-}
-
 .left-col,
 .right-col {
   padding: 1em;
@@ -139,6 +135,10 @@ li {
 
 .left-col {
   float: left;
+}
+
+.buttons button {
+  min-width: 10em;
 }
 
 .right-col {
