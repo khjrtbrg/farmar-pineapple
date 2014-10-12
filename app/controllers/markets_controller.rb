@@ -1,4 +1,6 @@
 class MarketsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :market_not_found
+  rescue_from NoMethodError, with: :edit_market_method_error
 
   def index
     @markets = Market.all
@@ -29,7 +31,7 @@ class MarketsController < ApplicationController
   end
 
   def edit
-    no_market_redirect
+    find_market
   end
 
   def update
@@ -41,22 +43,22 @@ class MarketsController < ApplicationController
   end
 
   def show
-    if find_market
-      find_market
-    else
-      redirect_to markets_path
-    end
+    find_market
   end
 
 
   private ## methods below here are protected from accidentally being used elsewhere
 
   def find_market
-    @market = Market.find(params[:id]) if Market.find_by(id: params[:id])
+    @market = Market.find(params[:id])
   end
 
-  def no_market_redirect
-    find_market ? find_market : redirect_to(edit_markets_landing_path)
+  def market_not_found
+    redirect_to markets_path
+  end
+
+  def edit_market_method_error
+    redirect_to edit_markets_landing_path
   end
 
   def market_params
