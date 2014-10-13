@@ -114,19 +114,28 @@ hr {
 }
 
 ul {
-  /* list-style-type: circle; */
   list-style: none;
   padding: 0;
 }
 
-ul li:before {
-    content: '\27A4';
-    margin: 0 1em;
+ul .first:before {
+  content: "\27A4";
+  margin: 0 1em;
 }
 
 li {
   padding-bottom: 0.5em;
 }
+
+  .nested {
+  margin: 0.4em 0 0 2em;
+  }
+
+.nested:before {
+  content: "\22C5";
+   margin: 0 1em;
+}
+
 
 .left-col,
 .right-col {
