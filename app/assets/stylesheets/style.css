@@ -133,7 +133,7 @@ li {
 
 .nested:before {
   content: "\22C5";
-   margin: 0 1em;
+  margin: 0 1em;
 }
 
 
@@ -161,7 +161,7 @@ li {
 }
 
 .right-col ul li:before {
-    content: '\2713';
+  content: '\2713';
 }
 
 .product-link-dashboard {
@@ -212,12 +212,16 @@ td {
   padding-right: 2em;
 }
 
-
 /* --- Mobile Styling --------------------------- */
 
 @media (max-width: 1075px) {
   form#search {
-    float: left;
-    margin-top: 15px;
+  float: left;
+  margin-top: 15px;
   }
+}
+
+/* --- Map Styling --------------------------- */
+#map {
+  height: 40em;
 }

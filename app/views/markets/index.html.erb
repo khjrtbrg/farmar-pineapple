@@ -1,3 +1,4 @@
+<div class="left-column">
 <h2>View All Markets</h2>
 
 <% @markets.each do |market| %>
@@ -8,3 +9,31 @@
   </ul>
   <hr>
 <% end %>
+</div>
+
+<div id="map"></div>
+
+<script>
+var map = L.map('map').setView([47.65, -122.4], 10);
+
+L.tileLayer('http://{s}.tiles.mapbox.com/v3/skwak.joejafje/{z}/{x}/{y}.png', {
+  attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+  maxZoom: 21
+}).addTo(map);
+
+    $(document).ready(function(){
+
+        var URL = "markets.json";
+
+        $.getJSON(URL, function(result){
+
+            $.each(result, function(idx, item){
+                if(item.latitude && item.longitude){
+                    L.marker([item.latitude, item.longitude]).addTo(map);
+                }
+            });
+
+        });
+
+    });
+</script>

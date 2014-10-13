@@ -4,6 +4,10 @@ class MarketsController < ApplicationController
 
   def index
     @markets = Market.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @markets }
+    end
   end
 
   def new
