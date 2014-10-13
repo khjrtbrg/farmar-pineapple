@@ -6,7 +6,7 @@ class SalesController < ApplicationController
 
   def new
     @sale = Sale.new
-    @vendor = Vendor.find(session[:user_id])
+    @vendor = current_user
     @products = Product.where(vendor_id: @vendor.id)
   end
 
@@ -29,6 +29,6 @@ class SalesController < ApplicationController
   end
 
   def vendor_identifier
-    @vendor = Vendor.find(session[:user_id])
+    @vendor = current_user
   end
 end
