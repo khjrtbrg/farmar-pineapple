@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get    "/search",                 to: "results#go_home"
   post   "/search",                 to: "results#search"#,           as: :search
 
-  ## RESTful vendors (not 100% RESTful)
   get    "/vendors",                to: "vendors#index",         as: :vendors
   get    "/vendors/:id",            to: "vendors#show",          as: :show_vendor
   get    "/vendors/:id/edit",       to: "vendors#edit_redirect"
@@ -15,12 +14,10 @@ Rails.application.routes.draw do
   get    "/delete",                 to: "vendors#destroy_prep",  as: :delete_vendor
   delete "/delete",                 to: "vendors#destroy"
 
-  ## RESTful sessions (nothing really changed here, not 100% RESTful)
   get    "/login",                  to: "sessions#index",        as: :login
   post   "/login",                  to: "sessions#create"
   get    "/log-out",                to: "sessions#destroy"
 
-  ## RESTful products
   get    "/products",               to: "products#index",        as: :products
   get    "/products/new",           to: "products#new",          as: :new_product
   post   "/products/new",           to: "products#create"
@@ -30,16 +27,11 @@ Rails.application.routes.draw do
   get    "/products/:id/delete",    to: "products#destroy_prep", as: :delete_product
   delete "/products/:id",           to: "products#destroy"
 
-  ## these aren't necessarily updated to be RESTful yet
-  # get  "/product/:id/sale",       to: "sales#index"
-  # post "/product/:id/sale",       to: "sales#create"
-
   get    "/sales",                  to: "sales#index",          as: :sales
   get    "/sales/new",              to: "sales#new",            as: :new_sale
   post   "/sales/new",              to: "sales#create"
   get    "/sales/:id",              to: "sales#show",           as: :show_sale
 
-  ## RESTful markets
   get    "/markets",                to: "markets#index",         as: :markets
   get    "/markets/new",            to: "markets#new",           as: :new_market
   post   "/markets/new",            to: "markets#create"
