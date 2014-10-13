@@ -4,4 +4,10 @@
   <li>Email: <%= @vendor.email %></li>
   <li>Description: <%= @vendor.description %></li>
   <li>Market: <%= link_to @vendor.market.name, show_market_path(@vendor.market.id) if @vendor.market != nil %></li>
+  <li><%= @vendor.products.count %> Products:</li>
+  <% @vendor.products.each do |product| %>
+    <ul>
+      <li><%= link_to product.name, show_product_path(product.id) %></li>
+    </ul>
+  <% end %>
 </ul>

@@ -1,7 +1,7 @@
 <h2>View All Vendors</h2>
 
 <% @vendors.each do |vendor| %>
-  <strong><%= vendor.username %></strong>
+  <strong><%= link_to vendor.username, show_vendor_path(vendor.id) %></strong>
   <ul>
     <li>Vendor Email: <%= vendor.email %></li>
     <li>Vendor Market: <%= vendor.market ? vendor.market.name : "No Market Selected" %></li>
