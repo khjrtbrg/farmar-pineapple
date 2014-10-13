@@ -73,7 +73,7 @@ class VendorsController < ApplicationController
 
   def destroy
     find_vendor.destroy
-    session[:user_id] = nil
+    reset_session
     redirect_to root_path, :notice => "Vendor Deleted!"
   end
 
