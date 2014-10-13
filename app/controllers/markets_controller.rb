@@ -30,8 +30,12 @@ class MarketsController < ApplicationController
     redirect_to edit_market_path(params[:market][:id])
   end
 
-  def edit
-    find_market
+  def edit ## WHY IS THIS NOT WORKING??
+    if current_user
+      redirect_to markets_path
+    else
+      find_market
+    end
   end
 
   def update
@@ -54,11 +58,15 @@ class MarketsController < ApplicationController
   end
 
   def market_not_found
-    redirect_to markets_path
+    if current_user
+      redirect_to edit_markets_landing_path
+    else
+      redirect_to markets_path
+    end
   end
 
   def edit_market_method_error
-    redirect_to edit_markets_landing_path
+    market_not_found
   end
 
   def market_params
