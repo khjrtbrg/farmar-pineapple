@@ -1,6 +1,6 @@
 class MarketsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :market_not_found
-  rescue_from NoMethodError, with: :edit_market_method_error
+  rescue_from NoMethodError, with: :market_not_found
 
   def index
     @markets = Market.all
@@ -63,10 +63,6 @@ class MarketsController < ApplicationController
     else
       redirect_to markets_path
     end
-  end
-
-  def edit_market_method_error
-    market_not_found
   end
 
   def market_params

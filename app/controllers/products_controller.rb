@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :product_not_found
-  rescue_from NoMethodError, with: :edit_product_method_error
+  rescue_from NoMethodError, with: :product_not_found
 
   def index
     @products = Product.all
@@ -58,10 +58,6 @@ class ProductsController < ApplicationController
     else
       redirect_to products_path
     end
-  end
-
-  def edit_product_method_error
-    product_not_found
   end
 
   def product_params
