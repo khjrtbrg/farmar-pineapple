@@ -7,13 +7,13 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
+    current_user ? @product = Product.new : redirect_to(products_path)
   end
 
   def create
     @product = Product.new(product_params)
     @product.vendor_id = current_user.id
-    if @product.save
+    if @product.save && current_user
       redirect_to dashboard_path, :notice => "Product Created!"
     else
       render "index"
@@ -25,11 +25,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    if !current_user
-      redirect_to products_path
-    else
-      find_product
-    end
+    current_user ? find_product : redirect_to(products_path)
   end
 
   def update
@@ -41,12 +37,16 @@ class ProductsController < ApplicationController
   end
 
   def destroy_prep
-    find_product
+    current_user ? find_product : redirect_to(products_path)
   end
 
   def destroy
-    find_product.destroy
-    redirect_to dashboard_path, :notice => "Product Deleted!"
+    if current_user
+      find_product.destroy
+      redirect_to dashboard_path, :notice => "Product Deleted!"
+    else
+      redirect_to products_path
+    end
   end
 
 

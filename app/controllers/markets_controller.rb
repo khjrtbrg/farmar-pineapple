@@ -7,12 +7,12 @@ class MarketsController < ApplicationController
   end
 
   def new
-    @market = Market.new
+    current_user ? @market = Market.new : redirect_to(markets_path)
   end
 
   def create
     @market = Market.new(market_params)
-    if @market.save
+    if @market.save && current_user
       redirect_to edit_vendor_path, :notice => "Market Created!"
     else
       render "new"
@@ -31,11 +31,7 @@ class MarketsController < ApplicationController
   end
 
   def edit
-    if !current_user
-      redirect_to markets_path
-    else
-      find_market
-    end
+    current_user ? find_market : redirect_to(markets_path)
   end
 
   def update
