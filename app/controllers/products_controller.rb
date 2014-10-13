@@ -25,11 +25,15 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    find_product
+    if !current_user
+      redirect_to products_path
+    else
+      find_product
+    end
   end
 
   def update
-    if find_product.update(product_params)
+    if find_product.update(product_params) && current_user
       redirect_to dashboard_path, :notice => "Product Updated!"
     else
       render "edit"

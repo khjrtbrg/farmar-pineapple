@@ -30,8 +30,8 @@ class MarketsController < ApplicationController
     redirect_to edit_market_path(params[:market][:id])
   end
 
-  def edit ## WHY IS THIS NOT WORKING??
-    if current_user
+  def edit
+    if !current_user
       redirect_to markets_path
     else
       find_market
@@ -39,7 +39,7 @@ class MarketsController < ApplicationController
   end
 
   def update
-    if find_market.update(market_params)
+    if find_market.update(market_params) && current_user
       redirect_to edit_vendor_path, :notice => "Market Updated!"
     else
       render "edit"
