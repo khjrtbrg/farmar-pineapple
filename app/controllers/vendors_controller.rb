@@ -1,4 +1,6 @@
 class VendorsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :vendor_not_found
+  rescue_from NoMethodError, with: :vendor_not_found
 
   def index
     @vendors = Vendor.all
@@ -20,7 +22,7 @@ class VendorsController < ApplicationController
 
   def dashboard
     if session[:user_id]
-      @vendor = Vendor.find(session[:user_id])
+      @vendor = current_user
       @vendor.market ? @current_market = @vendor.market.name : @current_market = "No Market Selected"
       @total_sales = total_sales_finder(@vendor)
     else
@@ -37,14 +39,14 @@ class VendorsController < ApplicationController
   end
 
   def edit
-    find_vendor
+    @vendor = current_user
     @markets = Market.all
     @vendor.market ? @current_market = @vendor.market.name : @current_market = "No Market Selected"
     @edit_markets = true if @markets.size > 0
   end
 
   def update
-    lookup_vendor
+    @vendor = current_user
     # These are separated out, instead of using .update because there needs to be a catch for the market_id
     @vendor.username = params[:vendor][:username]
     @vendor.email = params[:vendor][:email]
@@ -60,19 +62,19 @@ class VendorsController < ApplicationController
   end
 
   def show
-    if find_vendor_no_session
-      find_vendor_no_session
-    else
-      redirect_to vendors_path
-    end
+    find_vendor_no_session
+  end
+
+  def edit_redirect
+    redirect_to vendors_path
   end
 
   def destroy_prep
-    find_vendor
+    @vendor = current_user
   end
 
   def destroy
-    find_vendor.destroy
+    current_user.destroy
     reset_session
     redirect_to root_path, :notice => "Vendor Deleted!"
   end
@@ -84,12 +86,8 @@ class VendorsController < ApplicationController
     @vendor = Vendor.find(params[:id]) if Vendor.find_by(id: params[:id])
   end
 
-  def find_vendor
-    lookup_vendor ? lookup_vendor : redirect_to(dashboard_path)
-  end
-
-  def lookup_vendor
-    @vendor = Vendor.find(session[:user_id]) if Vendor.find_by(id: session[:user_id])
+  def vendor_not_found
+    redirect_to vendors_path
   end
 
   def vendor_params
