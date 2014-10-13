@@ -54,7 +54,7 @@ class VendorsController < ApplicationController
     @vendor.market_id = params[:vendor][:market_id] if params[:vendor][:market_id] != "select"
 
     if @vendor.save
-      redirect_to dashboard_path
+      redirect_to dashboard_path, :notice => "Updated!"
     else
       flash.now.alert = "Something's wrong. Try again?"
       render "edit"
