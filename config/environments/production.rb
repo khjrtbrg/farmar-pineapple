@@ -82,5 +82,4 @@ Rails.application.configure do
 
   config.assets.compile = true
 
-  config.assets.initialize_on_precompile=false
 end
